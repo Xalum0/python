@@ -12,9 +12,11 @@ lista = f.obtener_productos() # usando la API
 # encontrados = f.buscar_por_titulo(lista, texto)
 # f.mostrar_productos(encontrados)
 
-cat = "laptops"
-prec = None
-dis = True
-res = f.filtrar_productos(lista, cat, prec, dis)
-f.mostrar_productos(res)
+# cat = "laptops"
+# prec = None
+# dis = True
+# res = f.filtrar_productos(lista, cat, prec, dis)
+# f.mostrar_productos(res)
 
+stats = f.calcular_estadisticas(lista)
+print(stats)

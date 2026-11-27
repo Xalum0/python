@@ -55,3 +55,33 @@ def filtrar_productos(productos, categoria=None, precio_max=None, solo_disponibl
             lista.append(p)
 
     return lista    
+
+def calcular_estadisticas(p):
+    total = len(p)
+    suma = 0
+    stk = 0
+    maxi = None
+    precio_medio = 0
+    cat = {}
+
+    if total != 0:
+        for producto in p:
+            suma += producto['price']
+            stk += producto['stock']
+            if (maxi == None or maxi['price'] < producto['price']):
+                maxi = producto
+
+            categoria = producto['category']
+            cat[categoria] = cat.get(categoria, 0) + 1
+
+        precio_medio = suma / total    
+    
+    res = {
+        "total": total,
+        "precio medio": precio_medio,
+        "stock": stk,
+        "mas_caro": maxi,
+        "por_categoria": cat
+    }
+
+    return res   
